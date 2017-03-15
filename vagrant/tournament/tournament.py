@@ -50,7 +50,7 @@ def registerPlayer(name):
     """
     db = connect()
     c = db.cursor()
-    c.execute("INSERT INTO players values(%s);", (name,))
+    c.execute("INSERT INTO players(name) values(%s);", (name,))
     db.commit()
     db.close()
 
@@ -85,7 +85,7 @@ def reportMatch(winner, loser):
     """
     db = connect()
     c = db.cursor()
-    c.execute("INSERT INTO matches values(%s, %s);", (winner, loser))
+    c.execute("INSERT INTO matches(winner, loser) values(%s, %s);", (winner, loser))
     db.commit()
     db.close()
 
@@ -104,6 +104,11 @@ def swissPairings():
         id2: the second player's unique id
         name2: the second player's name
     """
-    #db = connect()
-    #c = db.cursor()
-    #c.execute()
+    db = connect()
+    c = db.cursor()
+    c.execute("SELECT * FROM player_standings;")
+    rows = c.fetchall()
+    paring = []
+    for i in range(0, len(rows), 2):
+        paring.append([rows[i][0], rows[i][1], rows[i+1][0], rows[i+1][1]])
+    return paring
