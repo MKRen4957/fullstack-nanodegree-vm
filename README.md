@@ -10,4 +10,4 @@ tournament.sql contains all the SQL statements needed to run the program. To sta
 8. type \c tournmanet, to connect to the database just created
 9. type \i tournament.sql, to create the tables and views needed for the program to run
 10. type \q or control+d on the keyboard to exit Postgresql
-The database is set up properly, tournament.py file contains functions to modify the database. However, to test if the program can function properly, type 'python tournament_text.py'. You should see all test cases passed. The tournament_text.py file contains multiple test functions.
+The database is set up properly, tournament.py file contains functions to modify the database. However, to test if the program can function properly, type 'python tournament_text.py'. You should see all test cases passed. The tournament_test.py file contains multiple test functions.
